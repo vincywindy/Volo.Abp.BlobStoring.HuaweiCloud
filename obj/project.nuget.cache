@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pZduurIayaUL49czcfE4+7Lu15FigTqrKr8woWQgq6oNcD7otjtdPQr7/OItafxpMKi23kMsUyR63IBA+5vPrQ==",
+  "dgSpecHash": "YXs8EPsBLdKHecCahHT0SmA3Cm/J4Tmjmf8a6ZAUofOKUCRtwTnEwWHtQSmB55/Ytke77K/kcToAM+kf3M4R6w==",
   "success": true,
-  "projectFilePath": "F:\\G\\Code\\verre\\aspnet-core\\Volo.Abp.BlobStoring.HuaweiCloud\\Volo.Abp.BlobStoring.HuaweiCloud.csproj",
+  "projectFilePath": "F:\\G\\Code\\Volo.Abp.BlobStoring.HuaweiCloud\\Volo.Abp.BlobStoring.HuaweiCloud.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vincy\\.nuget\\packages\\awssdk.core\\3.7.5.2\\awssdk.core.3.7.5.2.nupkg.sha512",
     "C:\\Users\\vincy\\.nuget\\packages\\awssdk.s3\\3.7.5\\awssdk.s3.3.7.5.nupkg.sha512",

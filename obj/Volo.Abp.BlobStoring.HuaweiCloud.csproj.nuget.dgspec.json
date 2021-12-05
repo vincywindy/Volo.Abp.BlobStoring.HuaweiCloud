@@ -1,20 +1,19 @@
 {
   "format": 1,
   "restore": {
-    "F:\\G\\Code\\verre\\aspnet-core\\Volo.Abp.BlobStoring.HuaweiCloud\\Volo.Abp.BlobStoring.HuaweiCloud.csproj": {}
+    "F:\\G\\Code\\Volo.Abp.BlobStoring.HuaweiCloud\\Volo.Abp.BlobStoring.HuaweiCloud.csproj": {}
   },
   "projects": {
-    "F:\\G\\Code\\verre\\aspnet-core\\Volo.Abp.BlobStoring.HuaweiCloud\\Volo.Abp.BlobStoring.HuaweiCloud.csproj": {
+    "F:\\G\\Code\\Volo.Abp.BlobStoring.HuaweiCloud\\Volo.Abp.BlobStoring.HuaweiCloud.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\G\\Code\\verre\\aspnet-core\\Volo.Abp.BlobStoring.HuaweiCloud\\Volo.Abp.BlobStoring.HuaweiCloud.csproj",
+        "projectUniqueName": "F:\\G\\Code\\Volo.Abp.BlobStoring.HuaweiCloud\\Volo.Abp.BlobStoring.HuaweiCloud.csproj",
         "projectName": "Volo.Abp.BlobStoring.HuaweiCloud",
-        "projectPath": "F:\\G\\Code\\verre\\aspnet-core\\Volo.Abp.BlobStoring.HuaweiCloud\\Volo.Abp.BlobStoring.HuaweiCloud.csproj",
+        "projectPath": "F:\\G\\Code\\Volo.Abp.BlobStoring.HuaweiCloud\\Volo.Abp.BlobStoring.HuaweiCloud.csproj",
         "packagesPath": "C:\\Users\\vincy\\.nuget\\packages\\",
-        "outputPath": "F:\\G\\Code\\verre\\aspnet-core\\Volo.Abp.BlobStoring.HuaweiCloud\\obj\\",
+        "outputPath": "F:\\G\\Code\\Volo.Abp.BlobStoring.HuaweiCloud\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "F:\\G\\Code\\verre\\aspnet-core\\NuGet.Config",
           "C:\\Users\\vincy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -22,8 +21,8 @@
           "netstandard2.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {},
-          "https://proget.hcteam.vip/nuget/QcNuget/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.0": {

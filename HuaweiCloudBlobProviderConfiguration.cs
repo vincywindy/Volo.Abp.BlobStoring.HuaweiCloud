@@ -39,14 +39,7 @@ namespace Volo.Abp.BlobStoring.HuaweiCloud
             set => _containerConfiguration.SetConfiguration(HuaweiCloudBlobProviderConfigurationNames.SecretKey, Check.NotNullOrWhiteSpace(value, nameof(value)));
         }
 
-        /// <summary>
-        ///connect to  to HuaweiCloud Client object to use https instead of http
-        /// </summary>
-        public bool WithSSL
-        {
-            get => _containerConfiguration.GetConfigurationOrDefault(HuaweiCloudBlobProviderConfigurationNames.WithSSL, false);
-            set => _containerConfiguration.SetConfiguration(HuaweiCloudBlobProviderConfigurationNames.WithSSL, value);
-        }
+       
 
         /// <summary>
         ///Default value: false.

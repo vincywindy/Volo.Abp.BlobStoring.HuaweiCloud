@@ -8,3 +8,13 @@ F:\G\Code\verre\aspnet-core\Volo.Abp.BlobStoring.HuaweiCloud\bin\Debug\netstanda
 F:\G\Code\verre\aspnet-core\Volo.Abp.BlobStoring.HuaweiCloud\bin\Debug\netstandard2.0\Volo.Abp.BlobStoring.HuaweiCloud.pdb
 F:\G\Code\verre\aspnet-core\Volo.Abp.BlobStoring.HuaweiCloud\obj\Debug\netstandard2.0\Volo.Abp.BlobStoring.HuaweiCloud.dll
 F:\G\Code\verre\aspnet-core\Volo.Abp.BlobStoring.HuaweiCloud\obj\Debug\netstandard2.0\Volo.Abp.BlobStoring.HuaweiCloud.pdb
+F:\G\Code\Volo.Abp.BlobStoring.HuaweiCloud\bin\Debug\netstandard2.0\Volo.Abp.BlobStoring.HuaweiCloud.deps.json
+F:\G\Code\Volo.Abp.BlobStoring.HuaweiCloud\bin\Debug\netstandard2.0\Volo.Abp.BlobStoring.HuaweiCloud.dll
+F:\G\Code\Volo.Abp.BlobStoring.HuaweiCloud\bin\Debug\netstandard2.0\Volo.Abp.BlobStoring.HuaweiCloud.pdb
+F:\G\Code\Volo.Abp.BlobStoring.HuaweiCloud\obj\Debug\netstandard2.0\Volo.Abp.BlobStoring.HuaweiCloud.csproj.AssemblyReference.cache
+F:\G\Code\Volo.Abp.BlobStoring.HuaweiCloud\obj\Debug\netstandard2.0\Volo.Abp.BlobStoring.HuaweiCloud.GeneratedMSBuildEditorConfig.editorconfig
+F:\G\Code\Volo.Abp.BlobStoring.HuaweiCloud\obj\Debug\netstandard2.0\Volo.Abp.BlobStoring.HuaweiCloud.AssemblyInfoInputs.cache
+F:\G\Code\Volo.Abp.BlobStoring.HuaweiCloud\obj\Debug\netstandard2.0\Volo.Abp.BlobStoring.HuaweiCloud.AssemblyInfo.cs
+F:\G\Code\Volo.Abp.BlobStoring.HuaweiCloud\obj\Debug\netstandard2.0\Volo.Abp.BlobStoring.HuaweiCloud.csproj.CoreCompileInputs.cache
+F:\G\Code\Volo.Abp.BlobStoring.HuaweiCloud\obj\Debug\netstandard2.0\Volo.Abp.BlobStoring.HuaweiCloud.dll
+F:\G\Code\Volo.Abp.BlobStoring.HuaweiCloud\obj\Debug\netstandard2.0\Volo.Abp.BlobStoring.HuaweiCloud.pdb

@@ -105,7 +105,6 @@ namespace Volo.Abp.BlobStoring.HuaweiCloud
             var stream = result.ResponseStream;
             if (stream != null)
             {
-                stream.Position = 0;
                 await stream.CopyToAsync(memoryStream);
                 memoryStream.Seek(0, SeekOrigin.Begin);
             }
