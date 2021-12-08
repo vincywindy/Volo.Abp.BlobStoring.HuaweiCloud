@@ -260,3 +260,5 @@ src/Verre.HttpApi.Host/Logs/*
 src/Verre.DbMigrator/Logs/*
 src/Verre.Blazor.Server/Logs/*
 src/Verre.Blazor.Server.Tiered/Logs/*
+.vs/Volo.Abp.BlobStoring.HuaweiCloud/v17/.futdcache.v1
+.vs/Volo.Abp.BlobStoring.HuaweiCloud/v17/.suo

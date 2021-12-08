@@ -27,27 +27,28 @@ namespace Volo.Abp.BlobStoring.HuaweiCloud
         {
             var blobName = HuaweiCloudBlobNameCalculator.Calculate(args);
             var configuration = args.Configuration.GetHuaweiCloudConfiguration();
-            var client = GetHuaweiCloudClient(args);
-            var containerName = GetContainerName(args);
-
-            if (!args.OverrideExisting && await BlobExistsAsync(client, containerName, blobName))
+            using (var client = GetHuaweiCloudClient(args))
             {
-                throw new BlobAlreadyExistsException($"Saving BLOB '{args.BlobName}' does already exists in the container '{containerName}'! Set {nameof(args.OverrideExisting)} if it should be overwritten.");
-            }
+                var containerName = GetContainerName(args);
 
-            if (configuration.CreateBucketIfNotExists)
-            {
-                await CreateBucketIfNotExists(client, containerName);
-            }
-            await client.PutObjectAsync(
-                new PutObjectRequest()
+                if (!args.OverrideExisting && await BlobExistsAsync(client, containerName, blobName))
                 {
-                    BucketName = containerName,
-                    Key = blobName,
-                    InputStream = args.BlobStream
+                    throw new BlobAlreadyExistsException($"Saving BLOB '{args.BlobName}' does already exists in the container '{containerName}'! Set {nameof(args.OverrideExisting)} if it should be overwritten.");
                 }
-            );
 
+                if (configuration.CreateBucketIfNotExists)
+                {
+                    await CreateBucketIfNotExists(client, containerName);
+                }
+                await client.PutObjectAsync(
+                    new PutObjectRequest()
+                    {
+                        BucketName = containerName,
+                        Key = blobName,
+                        InputStream = args.BlobStream
+                    }
+                );
+            }
 
 
 
@@ -56,66 +57,74 @@ namespace Volo.Abp.BlobStoring.HuaweiCloud
         public override async Task<bool> DeleteAsync(BlobProviderDeleteArgs args)
         {
             var blobName = HuaweiCloudBlobNameCalculator.Calculate(args);
-            var client = GetHuaweiCloudClient(args);
-            var containerName = GetContainerName(args);
-
-            try
+            using (var client = GetHuaweiCloudClient(args))
             {
-                if (await BlobExistsAsync(client, containerName, blobName))
+                var containerName = GetContainerName(args);
+
+                try
+                {
+                    if (await BlobExistsAsync(client, containerName, blobName))
+                    {
+
+                        var result = await client.DeleteObjectAsync(new DeleteObjectRequest() { BucketName = args.ContainerName, Key = args.BlobName });
+
+
+                        return result.HttpStatusCode == System.Net.HttpStatusCode.OK;
+                    }
+                }
+                catch (Exception)
                 {
 
-                    var result = await client.DeleteObjectAsync(new DeleteObjectRequest() { BucketName = args.ContainerName, Key = args.BlobName });
-
-
-                    return result.HttpStatusCode == System.Net.HttpStatusCode.OK;
+                    throw;
                 }
-            }
-            catch (Exception)
-            {
 
-                throw;
             }
-
             return false;
         }
 
         public override async Task<bool> ExistsAsync(BlobProviderExistsArgs args)
         {
             var blobName = HuaweiCloudBlobNameCalculator.Calculate(args);
-            var client = GetHuaweiCloudClient(args);
-            var containerName = GetContainerName(args);
+            using (var client = GetHuaweiCloudClient(args))
+            {
+                var containerName = GetContainerName(args);
 
-            return await BlobExistsAsync(client, containerName, blobName);
+                return await BlobExistsAsync(client, containerName, blobName);
+            }
         }
 
         public override async Task<Stream> GetOrNullAsync(BlobProviderGetArgs args)
         {
             var blobName = HuaweiCloudBlobNameCalculator.Calculate(args);
-            var client = GetHuaweiCloudClient(args);
-            var containerName = GetContainerName(args);
-
-            if (!await BlobExistsAsync(client, containerName, blobName))
+            using (var client = GetHuaweiCloudClient(args))
             {
-                return null;
+                var containerName = GetContainerName(args);
+
+                if (!await BlobExistsAsync(client, containerName, blobName))
+                {
+                    return null;
+                }
+
+                var memoryStream = new MemoryStream();
+
+                using (var result = await client.GetObjectAsync(new GetObjectRequest() { BucketName = containerName, Key = blobName }))
+                {
+                    var stream = result.ResponseStream;
+                    if (stream != null)
+                    {
+                        await stream.CopyToAsync(memoryStream);
+                        memoryStream.Seek(0, SeekOrigin.Begin);
+                    }
+                    else
+                    {
+                        memoryStream = null;
+                    }
+
+                }
+
+
+                return memoryStream;
             }
-
-            var memoryStream = new MemoryStream();
-
-            var result = await client.GetObjectAsync(new GetObjectRequest() { BucketName = containerName, Key = blobName });
-            var stream = result.ResponseStream;
-            if (stream != null)
-            {
-                await stream.CopyToAsync(memoryStream);
-                memoryStream.Seek(0, SeekOrigin.Begin);
-            }
-            else
-            {
-                memoryStream = null;
-            }
-
-
-
-            return memoryStream;
         }
 
         protected virtual IAmazonS3 GetHuaweiCloudClient(BlobProviderArgs args)
@@ -123,7 +132,7 @@ namespace Volo.Abp.BlobStoring.HuaweiCloud
             var configuration = args.Configuration.GetHuaweiCloudConfiguration();
             var config = new AmazonS3Config();
             config.ServiceURL = configuration.EndPoint;
-
+           
             var client = new AmazonS3Client(configuration.AccessKey, configuration.SecretKey, config);
 
 
