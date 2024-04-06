@@ -66,7 +66,7 @@ namespace Volo.Abp.BlobStoring.HuaweiCloud
                     if (await BlobExistsAsync(client, containerName, blobName))
                     {
 
-                        var result = await client.DeleteObjectAsync(new DeleteObjectRequest() { BucketName = args.ContainerName, Key = blobName });
+                        var result = await client.DeleteObjectAsync(new DeleteObjectRequest() { BucketName = containerName, Key = blobName });
 
 
                         return result.HttpStatusCode == System.Net.HttpStatusCode.OK;
